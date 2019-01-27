@@ -4,10 +4,10 @@
 
     const xhr = new XMLHttpRequest();
 
-    const spisokRab = document.querySelector('.asfdsdfsd'),
-        odinRab = document.querySelector('#li-tmpl').innerHTML;
+    const employeesList = document.querySelector('.bulleted'),
+        employeeTmpl = document.querySelector('#li-tmpl').innerHTML;
 
-    let spisokRabHTML="";
+    let employeeListHTML="";
 
     xhr.open('GET', "./data/employees.json");
 
@@ -24,14 +24,14 @@
             }else{
                 status="out";
             }
-
-            spisokRabHTML += odinRab
-                .replace(/{{inoffice}}/ig, status)
-                .replace(/{{name}}/ig, employees.name)
+            
+            employeeListHTML += employeeTmpl
+            .replace(/{{inoffice}}/ig, status)
+            .replace(/{{name}}/ig, employees.name)
         });
 
-        spisokRab.innerHTML = spisokRabHTML;
+        employeesList.innerHTML = employeeListHTML;
 
-    };
+    }; 
 
 })();
